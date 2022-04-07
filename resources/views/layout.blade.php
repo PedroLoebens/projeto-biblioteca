@@ -60,7 +60,7 @@
             @yield('conteudo')
         </div>
 
-        <footer class="py-3 my-4" {{--style="position: fixed; bottom: 0; left: 0; right: 0;"--}}>
+        <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item me-5">Gabriel Kleinübing Schiavo</li>
                 <li class="nav-item me-5">Gabriel Meneghetti</li>
@@ -68,7 +68,7 @@
                 <li class="nav-item">Pedro Henrique Loebens</li>
             </ul>
             <p class="text-center text-muted">2022 Fundação Educacional Machado de Assis</p>
-            <p class="text-start text-muted ms-2" tabindex="0" style="font-size: 11px"><i>Ícones desenvolvidos por <a href="https://icons8.com/" target="_blank" rel="noreferrer"><strong>Icons8</strong></a>.</i></p>
+            {{-- <p class="text-start text-muted ms-2" tabindex="0" style="font-size: 11px"><i>Ícones desenvolvidos por <a href="https://icons8.com/" target="_blank" rel="noreferrer"><strong>Icons8</strong></a>.</i></p> --}}
         </footer>
 
         <!-- Bootstrap JS -->

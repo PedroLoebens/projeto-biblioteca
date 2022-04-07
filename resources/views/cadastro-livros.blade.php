@@ -46,5 +46,5 @@
             <button type="submit" class="btn btn-primary">Salvar</button>
             <a type="button" class="btn btn-secondary" href="/lista-livros">Cancelar</a>
         </div>
-    </form>   
+    </form>  
 @endsection

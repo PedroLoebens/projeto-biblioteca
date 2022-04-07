@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Pessoa;
@@ -13,9 +12,7 @@ class PessoaController extends Controller
     {
         $listaPessoas = Pessoa::all();
 
-        // pega a mensagem da sessão da requisição
         $mensagem = $request->session()->get('mensagem');
-        // após apaga a mensagem da sessão
         $request->session()->remove('mensagem');
 
         return view('lista-pessoas', [
@@ -29,15 +26,6 @@ class PessoaController extends Controller
         return view('cadastro-pessoas');
     }
 
-    // public function editar(Request $request)
-    // {
-    //     $pessoas = Pessoas::find($request->id);
-
-    //     return view('cadastro-pessoas', [
-    //         "pessoas" => $pessoas
-    //     ]);
-    // }
-
     public function excluir(Request $request)
     {
         $pessoas = Pessoa::find($request->id);
@@ -50,7 +38,6 @@ class PessoaController extends Controller
 
     public function salvarPessoas(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'codigo' => 'required|min:1|max:20',
             'nome' => 'required|min:1|max:100',
@@ -67,9 +54,6 @@ class PessoaController extends Controller
             return Redirect::back()->withInput()->withErrors($validator);
         }
 
-
-        
-        
         if ($request->id != null) {
             $pessoas = Pessoa::find($request->id);
             $pessoas->codigo = $request->codigo;
@@ -79,24 +63,16 @@ class PessoaController extends Controller
             $pessoas->email = $request->email;
             $pessoas->save();
 
-            // adiciona uma mensagem na sessão da requisição
             $request->session()->put('mensagem', "Pessoa {$pessoas->id} atualizada!");
         } else {
-            // para que seja criada precisa ser adicionado como $fillable no modelo Tarefa.php exemplo:
-            // 
-            //  protected $fillable = ['codigo', 'descricao'];
-            //
-            //  
             $pessoas = Pessoa::create([
                 'codigo' => $request->codigo,
-                'nome' => $request->nome, // pega as informações da requisição
+                'nome' => $request->nome,
                 'endereco' => $request->endereco,
                 'telefone' => $request->telefone,
                 'email' => $request->email,
             ]);
 
-
-            // adiciona uma mensagem na sessão da requisição
             $request->session()->put('mensagem', "Pessoa {$pessoas->id} criada!");
         }
 

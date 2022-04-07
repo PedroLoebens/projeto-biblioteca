@@ -5,49 +5,46 @@
 @endsection
 
 @section('conteudo')
-          
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-        <form action="/lista-livros/cadastro-livros" method="POST">
-            <!-- o csrf é uma proteção de cors origem que o proprio laravel implemente -->
-            @csrf
+    <form action="/lista-livros/cadastro-livros" method="POST" enctype="multipart/form-data">
+        @csrf
 
-            {{-- <input type="hidden" name="id" value="{{isset($livros) ? $livros->id : old('id')}}" /> --}}
+        <input type="hidden" name="id" value="{{isset($livros)}}" />
 
-            <div class="mb-3">
-                <label for="formTitulo" class="form-label">Código do Gênero</label>
-                <input class="form-control" type="number" id="codigoGenero" name="codigoGenero" value="{{isset($genero) ? $livros->codigoGenero : old('codigoGenero')}}" placeholder="Digite o código do Gênero">
-            </div>
-            <div class="mb-3">
-                <label for="formTitulo" class="form-label">Código do Livro</label>
-                <input class="form-control" type="number" id="codigoLivro" name="codigoLivro" value="{{isset($livros) ? $livros->codigoLivro : old('codigoLivro')}}" placeholder="Digite o código do Livro">
-            </div>
-           <div class="mb-3">
-                <label for="formTitulo" class="form-label">Titulo do Livro</label>
-                <input class="form-control" type="text" id="titulo" name="titulo" value="{{isset($livros) ? $livros->codigo : old('titulo')}}" placeholder="Digite o Titulo do Livro">
-            </div>
-            <div class="mb-3">
-                <label for="formDescricao" class="form-label">Descrição do gênero</label>
-                <textarea class="form-control" type="text" id="formDescricao" name="descricao" placeholder="Digite uma descrição">{{isset($genero) ? $genero->descricao : old('descricao')}}</textarea>
-            </div>
-            <div class="mb-5">
-                <label for="formFile" class="form-label"></label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
+        <div class="mb-3">
+            <label for="formTitulo" class="form-label">Código do Gênero</label>
+            <input class="form-control" type="number" id="codigoGenero" name="codigoGenero" value="{{isset($genero)}}" placeholder="Digite o código do Gênero">
+        </div>
+        <div class="mb-3">
+            <label for="formTitulo" class="form-label">Código do Livro</label>
+            <input class="form-control" type="number" id="codigoLivro" name="codigoLivro" value="{{isset($livros)}}" placeholder="Digite o código do Livro">
+        </div>
+       <div class="mb-3">
+            <label for="formTitulo" class="form-label">Titulo do Livro</label>
+            <input class="form-control" type="text" id="titulo" name="titulo" value="{{isset($livros)}}" placeholder="Digite o título do Livro">
+        </div>
+        <div class="mb-3">
+            <label for="formDescricao" class="form-label">Descrição</label>
+            <textarea class="form-control" type="text" id="formDescricao" name="descricao" placeholder="Digite a descrição do Livro">{{isset($genero)}}</textarea>
+        </div>
 
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+        <div class="mb-5">
+            <label for="imgCapa" class="form-label">Escolha a imagem da capa:</label>
+            <input class="form-control" type="file" name="imgCapa" id="imgCapa">
+        </div>
 
-                <a type="button" class="btn btn-secondary" href="/lista-livros">Cancelar</a>
-            </div>
-        </form>   
-    </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a type="button" class="btn btn-secondary" href="/lista-livros">Cancelar</a>
+        </div>
+    </form>   
 @endsection

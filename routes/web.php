@@ -1,11 +1,9 @@
 <?php
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LivrosController;
 use App\Http\Controllers\PessoaController;
 use Illuminate\Support\Facades\Route;
-
 
 Route::get('/', function () {
     return redirect('/home');
@@ -24,7 +22,6 @@ Route::delete('/lista-genero/{id}/excluir', [GeneroController::class, 'excluir']
 
 
 // Livros 
-
 Route::get('/lista-livros', [LivrosController::class, 'listaLivros']);
 
 Route::get('/lista-livros/cadastro-livros', [LivrosController::class, 'cadastroLivros']);

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Livros;
@@ -9,14 +8,12 @@ use Illuminate\Support\Facades\Validator;
 
 class LivrosController extends Controller
 {
-
     public function listaLivros(Request $request)
     {
         $listaLivros = Livros::all();
 
-        // pega a mensagem da sessão da requisição
         $mensagem = $request->session()->get('mensagem');
-        // após apaga a mensagem da sessão
+       
         $request->session()->remove('mensagem');
 
         return view('lista-livros', [
@@ -30,15 +27,6 @@ class LivrosController extends Controller
         return view('cadastro-livros');
     }
 
-    // public function editar(Request $request)
-    // {
-    //     $livros = Livros::find($request->id);
-
-    //     return view('cadastro-livros', [
-    //         "livros" => $livros
-    //     ]);
-    // }
-
     public function excluir(Request $request)
     {
         $livros = Livros::find($request->id);
@@ -51,7 +39,7 @@ class LivrosController extends Controller
 
     public function salvarLivros(Request $request)
     {
-
+        // Validação dos campos
         $validator = Validator::make($request->all(), [
             'codigoGenero' => 'required|min:1|max:20',
             'codigoLivro' => 'required|min:1|max:20',
@@ -67,7 +55,25 @@ class LivrosController extends Controller
             return Redirect::back()->withInput()->withErrors($validator);
         }
 
+        // Upload da Imagem
+        if($request->hasFile('imgCapa')){
+            // Obtém o nome de arquivo com a extensão
+            $nomeArquivoComExt = $request->file('imgCapa')->getClientOriginalName();
 
+            // Obtém apenas o nome do arquivo
+            $nomeArquivo = pathinfo($nomeArquivoComExt, PATHINFO_FILENAME);
+
+            // Obtém apenas a extenção
+            $extensao = $request->file('imgCapa')->getClientOriginalExtension();
+
+            // Nome do arquivo para armazenar
+            $imgCapa= $nomeArquivo.'_'.time().'.'.$extensao;
+
+            // Upload da Imagem
+            $path = $request->file('imgCapa')->storeAs('public/imgCapa', $imgCapa);
+        } else {
+            $imgCapa = 'semImage.png';
+        }
         
         
         if ($request->id != null) {
@@ -76,25 +82,21 @@ class LivrosController extends Controller
             $livros->codigoLivro = $request->codigoLivro;
             $livros->titulo = $request->titulo;
             $livros->descricao = $request->descricao;
+            $livros->imgCapa = $request->imgCapa;
+            
             $livros->save();
 
-            // adiciona uma mensagem na sessão da requisição
             $request->session()->put('mensagem', "Livro {$livros->id} atualizado!");
+            
         } else {
-            // para que seja criada precisa ser adicionado como $fillable no modelo Tarefa.php exemplo:
-            // 
-            //  protected $fillable = ['codigo', 'descricao'];
-            //
-            //  
             $livros = Livros::create([
                 'codigoGenero' => $request->codigoGenero,
-                'codigoLivro' => $request->codigoLivro, // pega as informações da requisição
+                'codigoLivro' => $request->codigoLivro,
                 'titulo' => $request->titulo,
                 'descricao' => $request->descricao,
+                'imgCapa' =>$imgCapa,
             ]);
 
-
-            // adiciona uma mensagem na sessão da requisição
             $request->session()->put('mensagem', "Livro {$livros->id} criado!");
         }
 

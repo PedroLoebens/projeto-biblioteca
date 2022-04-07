@@ -3,12 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/img/favicon_livros_32x32.png"/>
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-        <title>Trabalho Programação WEB III - Projeto Biblioteca</title>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" />
+
+        <title>Projeto Biblioteca</title>
     </head>
     <body>
         <header>
@@ -20,6 +24,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/home">Home</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Listas
@@ -47,7 +54,7 @@
                 </div>
             </nav>
         </header>
-
+        
         <div class="container">
             <br>
             @yield('conteudo')
@@ -61,6 +68,7 @@
                 <li class="nav-item">Pedro Henrique Loebens</li>
             </ul>
             <p class="text-center text-muted">2022 Fundação Educacional Machado de Assis</p>
+            <p class="text-start text-muted ms-2" tabindex="0" style="font-size: 11px"><i>Ícones desenvolvidos por <a href="https://icons8.com/" target="_blank" rel="noreferrer"><strong>Icons8</strong></a>.</i></p>
         </footer>
 
         <!-- Bootstrap JS -->

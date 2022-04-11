@@ -17,4 +17,4 @@ Este projeto visa controla o cadastro dos livros e empréstimos.
 
 ## Licença
 
-Qualquer utilização deste repositório ou de arquivos presentes nele é estritamente **proibida** sem a autorização do proprietário do repositório.
+Qualquer utilização deste repositório ou de arquivos presentes nele é estritamente **proibida** sem a devida autorização do proprietário deste repositório.

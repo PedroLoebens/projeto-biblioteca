@@ -15,4 +15,4 @@ Este projeto visa controla o cadastro dos livros e empréstimos.
 
 ## Licença
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Qualquer utilização deste repositório ou de arquivos presentes nele é estritamente proibida sem a autorização do proprietário do repositório.

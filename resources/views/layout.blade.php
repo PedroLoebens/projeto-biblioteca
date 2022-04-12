@@ -35,7 +35,7 @@
                                     <li><a class="dropdown-item" href="/lista-genero">Lista Gêneros</a></li>
                                     <li><a class="dropdown-item" href="/lista-livros">Lista Livros</a></li>
                                     <li><a class="dropdown-item" href="/lista-pessoas">Lista Pessoas</a></li>
-                                    <li><a class="dropdown-item" href="/lista-retirada">Lista Retiradas/Devolucao</a></li>
+                                    <li><a class="dropdown-item" href="/lista-reservas">Lista Retiradas/Devolucao</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown">
@@ -46,7 +46,7 @@
                                     <li><a class="dropdown-item" href="/lista-genero/cadastro-genero">Cadastro Gêneros</a></li>
                                     <li><a class="dropdown-item" href="/lista-livros/cadastro-livros">Cadastro Livros</a></li>
                                     <li><a class="dropdown-item" href="/lista-pessoas/cadastro-pessoas">Cadastro Pessoas</a></li>
-                                    <li><a class="dropdown-item" href="/lista-retirada/cadastro-retirada">Cadastro Retiradas/Devoluçaões</a></li>
+                                    <li><a class="dropdown-item" href="/lista-reservas/cadastro-reservas">Cadastro Retiradas/Devoluçaões</a></li>
                                 </ul>
                             </li>
                         </ul>

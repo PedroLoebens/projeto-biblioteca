@@ -3,6 +3,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LivrosController;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\ReservaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,3 +38,11 @@ Route::get('/lista-pessoas/cadastro-pessoas', [PessoaController::class, 'cadastr
 Route::post('/lista-pessoas/cadastro-pessoas', [PessoaController::class, 'salvarPessoas']);
 
 Route::delete('/lista-pessoas/{id}/excluir', [PessoaController::class, 'excluir']);
+
+// Reservas
+Route::get('/lista-reservas', [ReservaController::class, 'listaReservas']);
+
+Route::get('/lista-reservas/cadastro-reservas', [ReservaController::class, 'cadastroReservas']);
+Route::post('/lista-reservas/cadastro-reservas', [ReservaController::class, 'salvarReservas']);
+
+Route::delete('/lista-reservas/{id}/excluir', [ReservaController::class, 'excluir']);

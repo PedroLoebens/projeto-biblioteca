@@ -10,8 +10,8 @@ return new class extends Migration
         Schema::create('reservas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('codigo');
-            $table->string('dataRetirada', 250);
-            $table->string('dataDevolucao', 250);
+            $table->date('dataRetirada');
+            $table->date('dataDevolucao');
             $table->string('pessoa', 250);
             $table->string('livro', 250);
         });

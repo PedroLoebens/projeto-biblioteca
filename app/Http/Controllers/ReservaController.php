@@ -40,8 +40,8 @@ class ReservaController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'codigo' => 'required|min:1|max:20',
-            'dataRetirada' => 'required|min:1|max:100',
-            'dataDevolucao' => 'required|min:1|max:250',
+            'dataRetirada' => 'required|min:8|max:8',
+            'dataDevolucao' => 'required|min:8|max:8',
             'pessoa' => 'required|min:1|max:15',
             'livro' => 'required|min:1|max:100',
         ], [
@@ -56,16 +56,16 @@ class ReservaController extends Controller
 
         if ($request->id != null) {
             $reserva = Reserva::find($request->id);
-            $reservas->codigo = $request->codigo;
-            $dataRetirada->dataRetirada = $request->dataRetirada;
-            $dataDevolucao->dataDevolucao = $request->dataDevolucao;
-            $pessoas->codigo = $request->codigo;
-            $livros->codigo = $request->codigo;
-            $reservas->save();
+            $reserva->codigo = $request->codigo;
+            $reserva->dataRetirada = $request->dataRetirada;
+            $reserva->dataDevolucao = $request->dataDevolucao;
+            $reserva->codigo = $request->codigo;
+            $reserva->codigo = $request->codigo;
+            $reserva->save();
 
-            $request->session()->put('mensagem', "Reserva {$reservas->id} atualizada!");
+            $request->session()->put('mensagem', "Reserva {$reserva->id} atualizada!");
         } else {
-            $reservas = Reserva::create([
+            $reserva = Reserva::create([
                 'codigo' => $request->codigo,
                 'dataRetirada' => $request->dataRetirada,
                 'dataDevolucao' => $request->dataDevolucao,

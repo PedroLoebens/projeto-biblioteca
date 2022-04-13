@@ -26,11 +26,11 @@
         </div>
         <div class="mb-3">
             <label for="formTitulo" class="form-label">Data de Retirada</label>
-            <input class="form-control" type="text" id="dataRetirada" name="dataRetirada" value="{{isset($reservas)}}" placeholder="Digite o dia da Retirada do Livro">
+            <input class="form-control" type="date" id="dataRetirada" name="dataRetirada" value="{{isset($reservas)}}" placeholder="Digite o dia da Retirada do Livro">
         </div>
         <div class="mb-3">
             <label for="formDescricao" class="form-label">Data de Devolução</label>
-            <textarea class="form-control" type="text" id="dataDevolucao" name="dataDevolucao" placeholder="Digite o dia da Devolução do Livro">{{isset($pessoas)}}</textarea>
+            <input class="form-control" type="date" id="dataDevolucao" name="dataDevolucao" placeholder="Digite o dia da Devolução do Livro">{{isset($pessoas)}}</input>
         </div>
         <div class="mb-3">
             <label for="formTitulo" class="form-label">Pessoa</label>

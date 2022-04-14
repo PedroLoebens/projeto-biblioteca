@@ -1,5 +1,5 @@
 ## Projeto Biblioteca - Trabalho Programação WEB III
-Este projeto visa controla o cadastro dos livros e empréstimos.
+Este projeto visa controlar o estoque interno de uma biblioteca.
 
 * Criar um rodapé fixo com o nome completo dos integrantes
 
